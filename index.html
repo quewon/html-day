@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+        }
+        .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            width: 20vw;
+            aspect-ratio: 1;
+            background: orange;
+            border-radius: 50%;
+            box-shadow: 0 0 100px 10px yellow, inset 0 0 50px 10px yellow;
+            text-align: center;
+            transition: width 5s;
+        }
+        .sun:hover {
+            width: 50vw;
+        }
+
+        span {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            font-size: 10px;
+            transition: font-size 5s;
+        }
+        .sun:hover span {
+            font-size: 30px;
+            animation: font-change 1s linear infinite;
+        }
+
+        .star {
+            translate: 0;
+            font-size: 0;
+            animation: font-change 1s linear infinite;
+        }
+        .sun:hover ~ .star {
+            font-size: 30px;
+        }
+        @keyframes font-change {
+            0% { font-family: sans-serif }
+            33% { font-family: serif }
+            66% { font-family: monospace }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sun">
+        <span>happy html day</span>
+    </div>
+
+    <span class="star">.</span>
+    <span class="star">*</span>
+    <span class="star">+</span>
+    <span class="star">.</span>
+    <span class="star">.</span>
+    <span class="star">*</span>
+    <span class="star">+</span>
+    <span class="star">.</span>
+    <span class="star">.</span>
+    <span class="star">*</span>
+    <span class="star">+</span>
+    <span class="star">.</span>
+    <span class="star">.</span>
+    <span class="star">*</span>
+    <span class="star">+</span>
+    <span class="star">.</span>
+    
+</body>
+
+<script>
+    var stars = document.querySelectorAll(".star");
+    for (let star of stars) {
+        star.style.top = (Math.random() * 80 + 10) + "%";
+        star.style.left = (Math.random() * 80 + 10) + "%";
+        star.style.animationDelay = Math.random() * -10 + "s";
+    }
+</script>
+
+</html>
