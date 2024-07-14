@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>for HTML day 2024</title>
     <style>
         body, html {
             width: 100%;
@@ -24,6 +24,9 @@
             text-align: center;
             transition: width 5s;
         }
+        .sun span {
+            color: white;
+        }
         .sun:hover {
             width: 50vw;
         }
@@ -39,12 +42,13 @@
         }
         .sun:hover span {
             font-size: 30px;
-            animation: font-change 1s linear infinite;
+            animation: font-change 1s linear infinite, style-change 1.5s linear infinite, bg-change 2.5s linear infinite;
         }
 
         .star {
             translate: 0;
             font-size: 0;
+            color: red;
             animation: font-change 1s linear infinite;
         }
         .sun:hover ~ .star {
@@ -54,6 +58,15 @@
             0% { font-family: sans-serif }
             33% { font-family: serif }
             66% { font-family: monospace }
+        }
+        @keyframes style-change {
+            0% { font-style: italic }
+            33% { font-weight: bold }
+            66% { font-style: normal }
+        }
+        @keyframes bg-change {
+            0% { font-style: italic }
+            90% { background: var(--red); }
         }
     </style>
 </head>
